@@ -19,30 +19,25 @@ const ChatRoom = (props) => {
 
     return (
         <div className="chat-room-container">
-            <h1 className="room-name">Room: {roomId}</h1>
-            <div className="messages-container">
-                <ol className="messages-list">
-                    {messages.map((message, i) => (
-                        <li
-                            key={i}
-                            className={`message-item ${
-                                message.ownedByCurrentUser ? "my-message" : "received-message"
-                            }`}
-                        >
-                            {message.username}: {message.body}
-                        </li>
-                    ))}
-                </ol>
+
+            <div className='ui-container'>
+                <div className="ui-float">
+                    <div className='ui-player-list'>Player List</div>
+                    <div className='ui-lobby-options'>Lobby Options</div>
+                </div>
+
+                <div className="ui-float map">
+                    The Map
+                    <div className='ui-dice-tool'>Dice Tool</div>
+                </div>
+
+                <div className="ui-float">
+                    <div className='ui-drawing-tool'>Drawing Tool</div>
+                    <div className='ui-tokens'>Tokens</div>
+                    <div className='ui-maps'>Maps</div>
+                </div>
             </div>
-            <textarea
-                value={newMessage}
-                onChange={handleNewMessageChange}
-                placeholder="Write message..."
-                className="new-message-input-field"
-            />
-            <button onClick={handleSendMessage} className="send-message-button">
-                Send
-            </button>
+
         </div>
     );
 };

@@ -1,67 +1,65 @@
 .chat-room-container {
     position: fixed;
-    left: 0;
-    right: 0;
+    width: 100%;
     top: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    margin: 16px;
 }
 
-.room-name {
-    margin-top: 0;
+.ui-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
-.messages-container {
-    flex: 1;
-    min-height: 100px;
-    overflow: auto;
-    border: 1px solid black;
-    border-radius: 7px 7px 0 0;
-}
-
-.messages-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.new-message-input-field {
-    height: 200px;
-    max-height: 50%;
-    font-size: 20px;
-    padding: 8px 12px;
-    resize: none;
-}
-
-.message-item {
-    width: 55%;
-    margin: 8px;
-    padding: 12px 8px;
-    word-break: break-word;
-    border-radius: 4px;
+.ui-float {
+    width: 13%;
+    border: solid black 2px;
+    background-color: gray;
     color: white;
 }
 
-.my-message {
-    background-color: rgb(0, 132, 255);
-    margin-left: auto;
+.ui-player-list {
+    height: 70%;
+    border: dotted red 2px;
 }
 
-.received-message {
-    background-color: #3f4042;
-    margin-right: auto;
+.ui-lobby-options {
+    height: 30%;
+    border: dotted red 2px;;
 }
 
-.send-message-button {
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
-    background: #31a24c;
-    padding: 24px 12px;
-    border: none;
+.ui-drawing-tool {
+    height: 30%;
+    border: dotted red 2px;
 }
 
-.messages-container, .new-message-input-field, .send-message-button {
-    border-color: #9a9a9a;
+.ui-tokens {
+    height: 40%;
+    border: dotted red 2px;
+}
+
+.ui-maps {
+    height: 30%;
+    border: dotted red 2px;
+}
+
+.ui-dice-tool {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 30%;
+    width: 30%;
+    border: dotted red 2px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.ui-float.map {
+    position: relative;
+    color: black;
+    width: 75%;
+    background-color: white;
+
 }
