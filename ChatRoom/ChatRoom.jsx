@@ -1,11 +1,9 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import "./ChatRoom.css";
 
-{/* added content----------------------------------*/}
 
-
-
+/* added content----------------------------------*/
 
 
 function ChatRoom() {
@@ -15,11 +13,10 @@ function ChatRoom() {
     const [isDrawing, setIsDrawing] = useState(false)
 
 
-    {/* Need to be changed to static */}
-    let tool = "cursor"
-
-    let color = "red"
-
+    const [tool, setTool] = useState(0);
+    const [color, setColor] = React.useState("black");
+    const [canvasHeight, setCanvasHeight] = useState(960)
+    const [canvasWidth, setCanvasWidth] = useState(1430)
 
 
     useEffect(() => {
@@ -28,23 +25,25 @@ function ChatRoom() {
         const context = canvas.getContext("2d")
 
         context.lineCap = "round"
-        context.strokeStyle = color
+        context.strokeStyle = color;
         context.lineWidth = 5
 
 
         contextRef.current = context;
-    }, [])
 
-    const changeToBrush = () =>{
-        tool = "brush"
-    }
 
-    const changeToCursor = () =>{
-        tool = "cursor"
-    }
 
-    const colorPalette = () =>{
-        color = "black"
+
+    },[color])
+
+    window.addEventListener('resize',resizeCanvas, false);
+
+    function resizeCanvas(){
+
+        setCanvasHeight(document.getElementById('canvasDiv').clientHeight);
+        setCanvasWidth(document.getElementById('canvasDiv').clientWidth);
+
+
     }
 
 
@@ -57,10 +56,32 @@ function ChatRoom() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
+    const changeColor = () =>{
+
+        const canvas = canvasRef.current;
+
+        const context = canvas.getContext("2d")
+
+        var e = document.getElementById("drawing-color");
+        var colorValue = e.options[e.selectedIndex].value;
+
+        setColor(colorValue);
+
+        context.lineCap = "round"
+        context.strokeStyle = color;
+        context.lineWidth = 5
+
+        contextRef.current = context;
+
+    }
+
 
     const startDrawing = ({nativeEvent}) => {
 
-        if (tool === "brush") {
+        if (tool === 1) {
+
+            changeColor();
+
             const {offsetX, offsetY} = nativeEvent;
             contextRef.current.beginPath()
             contextRef.current.moveTo(offsetX, offsetY)
@@ -72,6 +93,7 @@ function ChatRoom() {
     const finishDrawing = () => {
         contextRef.current.closePath()
         setIsDrawing(false)
+
     }
 
     const draw = ({nativeEvent}) => {
@@ -86,7 +108,7 @@ function ChatRoom() {
 
     }
 
-{/* added content----------------------------------*/}
+/* added content----------------------------------*/
 
 
     return (
@@ -101,17 +123,23 @@ function ChatRoom() {
                 <div className="ui-float map">
                     {/* added content----------------------------------*/}
 
-                    <canvas
+                    <div id='canvasDiv'>
 
-                        width={"1400"}
-                        height={"937"}
+                        <canvas
+
+                        className={"myCanvas"}
+                        width={canvasWidth}
+                        height={canvasHeight}
                         onMouseDown={startDrawing}
                         onMouseUp={finishDrawing}
                         onMouseMove={draw}
 
                         ref={canvasRef}
 
-                    />
+                         />
+
+                    </div>
+
                     {/* added content----------------------------------*/}
 
                     <div className='ui-dice-tool'>Dice Tool</div>
@@ -131,23 +159,33 @@ function ChatRoom() {
                             <tr>
                                 <td>
 
-                                    <button className={"drawing-button-cursor"} type={"button"} onClick={changeToCursor}>
+                                    <button className={"drawing-button-cursor"} type={"button"}
+                                            onClick={() => setTool(0)}>
                                         Cursor</button>
 
                                 </td>
                                 <td>
-                                    <button className={"drawing-button-reset"} type={"button"} onClick={reset}>
+                                    <button className={"drawing-button-reset"} type={"button"}
+                                            onClick={reset}>
                                         Reset</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <button className={"drawing-button-brush"} type={"button"} onClick={changeToBrush}>
+                                    <button className={"drawing-button-brush"} type={"button"}
+                                            onClick={() => setTool(1)}>
                                         Brush</button>
                                 </td>
                                 <td>
-                                    <button className={"drawing-button-color"} type={"button"} onClick={colorPalette}>
-                                        Color</button>
+
+                                    <select id={"drawing-color"} onChange={changeColor}>
+                                        <option value={color}>Color</option>
+                                        <option value="black">Black</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="red">Red</option>
+                                        <option value="green">Green</option>
+                                        <option value="#FFD518">Yellow</option>
+                                        </select>
                                 </td>
                             </tr>
                         </table>
@@ -161,6 +199,6 @@ function ChatRoom() {
 
         </div>
     );
-};
+}
 
 export default ChatRoom;
