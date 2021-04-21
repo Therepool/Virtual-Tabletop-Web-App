@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 
-const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
+const token_dropped_on_board = "token_added_to_board";
 const SOCKET_SERVER_URL = "http://localhost:4000";
 
 const useChat = (roomId) => {
@@ -13,7 +13,7 @@ const useChat = (roomId) => {
             query: { roomId },
         });
 
-        socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, (message) => {
+        socketRef.current.on(token_dropped_on_board, (message) => {
             const incomingMessage = {
                 ...message,
                 ownedByCurrentUser: message.senderId === socketRef.current.id,
@@ -27,13 +27,17 @@ const useChat = (roomId) => {
     }, [roomId]);
 
     const sendMessage = (messageBody) => {
-        socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
-            body: messageBody,
+        socketRef.current.emit(token_dropped_on_board, {
+            token: messageBody,
             senderId: socketRef.current.id,
         });
     };
 
-    return { messages, sendMessage };
+    const leaveLobby = () => {
+        socketRef.current.emit('disconnected', { senderId:socketRef.current.id});
+    };
+
+    return { messages, sendMessage, leaveLobby };
 };
 
 export default useChat;
