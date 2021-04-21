@@ -1,0 +1,61 @@
+* {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+button {
+    background-color: black;
+    border-radius: 6px;
+    border: none;
+    color: yellow;
+    padding: 10px;
+    text-transform: lowercase;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+button1 {
+    background-color: black;
+    border-radius: 6px;
+    border: none;
+    color: yellow;
+    padding: 10px;
+    text-transform: lowercase;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+button2 {
+    background-color: black;
+    border-radius: 6px;
+    border: none;
+    color: yellow;
+    padding: 10px;
+    text-transform: lowercase;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+button3 {
+    background-color: black;
+    border-radius: 6px;
+    border: none;
+    color: yellow;
+    padding: 10px;
+    text-transform: lowercase;
+    width: 40px;
+    cursor: pointer;
+
+}
+
+#placeholder {
+    border: 4px solid deepskyblue ;
+    border-radius: 2px;
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    margin: 30px auto;
+    font-size:40px;
+}
