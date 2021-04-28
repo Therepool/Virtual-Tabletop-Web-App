@@ -6,8 +6,7 @@ const io = require("socket.io")(server, {
 });
 
 const PORT = 4000;
-const token_dropped_on_board = "token_added_to_board";
-const clients = {};
+const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
 io.on("connection", (socket) => {
 
@@ -16,25 +15,15 @@ io.on("connection", (socket) => {
     socket.join(roomId);
 
     // Listen for new messages
-    socket.on(token_dropped_on_board, (data) => {
-        data.username = 'user' + (Object.keys(clients).length + 1);
-
-            if (!(data.senderId in clients)) {
-                let client = {id: data.senderId, username: data.username};
-                clients[data.senderId]= client;
-            }
-        console.log(clients);
-        io.in(roomId).emit(token_dropped_on_board, data);
+    socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+        data.username = 'user';
+        io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
     });
 
     // Leave the room if the user closes the socket
-    socket.on("disconnected", (data) => {
-        console.log(data);
-        let username = clients[data.senderId].username;
-
-        delete clients[data.senderId];
+    socket.on("disconnect", () => {
         socket.leave(roomId);
-        io.in(roomId).emit('disconnected', username + ' Disconnected');
+        io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, 'User Disconnected');
     });
 });
 
