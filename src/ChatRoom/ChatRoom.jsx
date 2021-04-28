@@ -1,8 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
-
+import React from "react";
 import "./ChatRoom.css";
 import useChat from "../useChat";
 import Tokens from "./components/tokens.js";
+import React, {useEffect, useRef, useState} from 'react';
 import MapHolder from "./components/mapholder.js";
 
 
@@ -33,8 +33,6 @@ const ChatRoom = (props) => {
     const handleLeaveClick = () => {
         leaveLobby();
     }
-
-
 
     /* canvas stuff */
     const canvasRef = useRef(null)
@@ -144,10 +142,12 @@ const ChatRoom = (props) => {
             <div className='ui-container'>
                 <div className="ui-float">
                     <div className='ui-player-list'>Player List</div>
-                    <div className='ui-lobby-options'>Lobby Options</div>
+                    <div className='ui-lobby-options'>Lobby Options
+                        <button onClick={handleLeaveClick}>Leave</button></div>
                 </div>
 
                 <div className="ui-float map">
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Chess_Board.svg/1200px-Chess_Board.svg.png' width='822px'/>
                     {/* added content----------------------------------*/}
 
                     <div id='canvasDiv'>
@@ -176,6 +176,9 @@ const ChatRoom = (props) => {
                 </div>
 
                 <div className="ui-float">
+                    <div className='ui-drawing-tool'>Drawing Tool</div>
+                    <div className='ui-tokens'><Tokens roomId={roomId} tokenCallback={callbackFunction}/></div>
+                    <div className='ui-maps'>Maps</div>
                     <div className='ui-drawing-tool'>
 
 

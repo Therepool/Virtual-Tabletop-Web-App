@@ -2,10 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Required Dependencies
-
-You will need to install node.js on windows in order to use react and node functionalities in powershell or command prompt. To create an app with the required modules you will need to run npx create-react-app *FolderName* this will allow you to run a local development server with the files and make necessary changes.
-
 ## Available Scripts
 
 In the project directory, you can run:
