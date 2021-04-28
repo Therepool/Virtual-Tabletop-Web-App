@@ -16,11 +16,13 @@ class MapHolder extends React.Component {
 
   fetchData = () => {
     let comp = this;
-    fetch('http://unn-w17016042.newnumyspace.co.uk/test/getMaps.php').then(function(data) {
-        return data.json();
-      }).then(function(response){
-        comp.setState({maps: response});
-      });
+    setInterval(function(){
+      fetch('http://unn-w17016042.newnumyspace.co.uk/test/getMaps.php').then(function(data) {
+          return data.json();
+        }).then(function(response){
+          comp.setState({maps: response});
+        });
+    }, 1000);
   }
 
   UploadFile = () => {
@@ -39,7 +41,6 @@ class MapHolder extends React.Component {
           alert("There was an error while uploading this map, please try again");
         }else{
           document.getElementById("mapFile").value = null;
-          temp.fetchData();
         }
       });
 
