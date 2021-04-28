@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import "./ChatRoom.css";
 import useChat from "../useChat";
 import Tokens from "./components/tokens.js";
+import MapHolder from "./components/mapholder.js";
 
 
 /* added content----------------------------------*/
@@ -219,7 +220,9 @@ const ChatRoom = (props) => {
 
                         </div>
                     <div className='ui-tokens'><Tokens roomId={roomId} tokenCallback={callbackFunction}/></div>
-                    <div className='ui-maps'>Maps</div>
+                    <div className='ui-maps'>
+                      <MapHolder roomId={roomId}/>
+                    </div>
                 </div>
             </div>
 
