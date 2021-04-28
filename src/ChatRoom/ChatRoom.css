@@ -132,8 +132,9 @@ td{
 #mapUploader{
   position: absolute;
   bottom: 10px;
-  right: -6em;
+  right: 0;
   background-color: #333;
   font-size: 2em;
   padding: 10px 20px;
+  width: 10vw;
 }
