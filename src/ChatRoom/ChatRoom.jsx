@@ -219,7 +219,7 @@ const ChatRoom = (props) => {
 
 
                         </div>
-                    <div className='ui-tokens'><Tokens roomId={roomId} tokenCallback={callbackFunction}/></div>
+                    <div className='ui-tokens'><Tokens roomId={roomId} tokenCallback={callbackFunction} tokens={messages}/></div>
                     <div className='ui-maps'>
                       <MapHolder roomId={roomId}/>
                     </div>
