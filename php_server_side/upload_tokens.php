@@ -2,13 +2,13 @@
 header('Access-Control-Allow-Origin: *');
 
 $fileNo = 0;
-while(file_exists("../../../tokens/" . $fileNo . ".png") || file_exists("../../../tokens/" . $fileNo . ".jpg")){
+while(file_exists("tokens/" . $fileNo . ".png") || file_exists("tokens/" . $fileNo . ".jpg")){
     $fileNo++;
 }
 
 $fileName = $_FILES["file"]['name'];
 $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-$location = "../../../tokens/" . $fileNo . "." . $ext;
+$location = "tokens/" . $fileNo . "." . $ext;
 if(move_uploaded_file($_FILES['file']['tmp_name'], $location)){
     echo "Success";
 }else{
