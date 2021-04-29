@@ -17,13 +17,15 @@ io.on("connection", (socket) => {
 
     // Listen for new messages
     socket.on(token_dropped_on_board, (data) => {
-        data.username = 'user' + (Object.keys(clients).length + 1);
+        data.username = data.senderId;
 
             if (!(data.senderId in clients)) {
                 let client = {id: data.senderId, username: data.username};
                 clients[data.senderId]= client;
             }
         console.log(clients);
+            console.log(data);
+            data.clients = clients;
         io.in(roomId).emit(token_dropped_on_board, data);
     });
 

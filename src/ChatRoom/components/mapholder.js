@@ -22,6 +22,16 @@ class MapHolder extends React.Component {
         }).then(function(response){
           comp.setState({maps: response});
         });
+
+        fetch('http://unn-w17016042.newnumyspace.co.uk/test/getCurrentMap.php').then(function(data) {
+            return data.text();
+          }).then(function(response){
+            let map = document.getElementsByClassName("map")[0];
+            map.style.backgroundImage = "url(https://www.freeiconspng.com/thumbs/grid-png/grid-png-transparent-pic-18.png), url('http://unn-w17016042.newnumyspace.co.uk/test/maps/" + response;
+            map.style.backgroundSize = "contain, contain";
+            map.style.backgroundRepeat = "repeat, no-repeat";
+            map.style.backgroundPosition = "center center, center center"
+          });
     }, 1000);
   }
 

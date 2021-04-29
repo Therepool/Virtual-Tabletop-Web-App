@@ -3,6 +3,7 @@ import Token from './token.js';
 import Modal from './modal.js';
 
 
+
     class Tokens extends React.Component {
         state = {
             data: [],
@@ -42,6 +43,7 @@ import Modal from './modal.js';
         }
 
 
+        }
         lobbyCallback = (childData) => {
             this.props.tokenCallback(childData);
         }
@@ -96,6 +98,14 @@ import Modal from './modal.js';
                         this.state.data.map( (details, i)  => (<Token Key={i} details={details} roomId={this.props.roomId} tokensCallback={this.lobbyCallback}/> ) )
                     }
 
+        render() {
+
+
+            return (
+
+                <div>
+                    <img src='http://simpleicon.com/wp-content/uploads/plus-256x256.png'/>
+                    <Token src={'http://simpleicon.com/wp-content/uploads/plus-256x256.png'} tokensCallback={this.lobbyCallback}/>
                 </div>
 
 
@@ -105,5 +115,3 @@ import Modal from './modal.js';
         }
     }
     export default Tokens;
-
-

@@ -27,7 +27,7 @@
 
 .ui-lobby-options {
     height: 30%;
-    border: dotted red 2px;
+    border: dotted red 2px;;
 }
 
 .ui-drawing-tool {
@@ -94,13 +94,7 @@
     text-align: center;
 }
 
-.ui-tokens img {
-    margin-left: 20%;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    border: 1px black solid;
-}
+
 
 td{
     width: 50%;
