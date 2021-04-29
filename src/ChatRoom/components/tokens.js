@@ -14,8 +14,8 @@ import Modal from './modal.js';
 
         componentDidMount() {
             let array = [];
-            const basepath = "http://localhost/vtapp/tabletop";
-            const url = "/src/ChatRoom/components/get_tokens.php";
+            const basepath = "http://unn-w17016042.newnumyspace.co.uk/test";
+            const url = "/get_tokens.php";
             fetch(basepath + url)
                 .then( (response) => response.json() )
                 .then( (data) => {
@@ -42,8 +42,6 @@ import Modal from './modal.js';
             }
         }
 
-
-        }
         lobbyCallback = (childData) => {
             this.props.tokenCallback(childData);
         }
@@ -59,8 +57,8 @@ import Modal from './modal.js';
         };
 
         handleUpload = () => {
-            const basepath = "http://localhost/vtapp/tabletop";
-            const url = "/src/ChatRoom/components/upload_tokens.php";
+            const basepath = "http://unn-w17016042.newnumyspace.co.uk/test";
+            const url = "/upload_tokens.php";
             let submit_button = document.getElementById('token-upload');
             let formData = new FormData();
             formData.append("file", document.getElementById("token-file").files[0]);
@@ -68,10 +66,10 @@ import Modal from './modal.js';
             fetch(basepath + url, {
                 method: 'POST',
                 body: formData
-            }).then(function(data) {
+            }).then(function (data) {
                 return data.text();
-            }).then(function(response) {
-                    submit_button.disabled  = false;
+            }).then(function (response) {
+                    submit_button.disabled = false;
                     if (response == "Error") {
                         alert("There was an error uploading the token, please try again");
                     } else {
@@ -97,21 +95,9 @@ import Modal from './modal.js';
                     {
                         this.state.data.map( (details, i)  => (<Token Key={i} details={details} roomId={this.props.roomId} tokensCallback={this.lobbyCallback}/> ) )
                     }
-
-        render() {
-
-
-            return (
-
-                <div>
-                    <img src='http://simpleicon.com/wp-content/uploads/plus-256x256.png'/>
-                    <Token src={'http://simpleicon.com/wp-content/uploads/plus-256x256.png'} tokensCallback={this.lobbyCallback}/>
-                </div>
-
-
-            );
-
-
+                    </div>
+            )
         }
     }
+
     export default Tokens;
