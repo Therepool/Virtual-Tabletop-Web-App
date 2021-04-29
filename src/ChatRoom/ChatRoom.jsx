@@ -4,6 +4,7 @@ import "./ChatRoom.css";
 import useChat from "../useChat";
 import Tokens from "./components/tokens.js";
 import MapHolder from "./components/mapholder.js";
+import DiceRoller from "./components/DiceRoller";
 
 
 /* added content----------------------------------*/
@@ -169,7 +170,7 @@ const ChatRoom = (props) => {
 
                     {/* added content----------------------------------*/}
 
-                    <div className='ui-dice-tool'>Dice Tool</div>
+                    <div className='ui-dice-tool'><DiceRoller/></div>
 
 
 

@@ -21,7 +21,7 @@ class Map extends React.Component {
 
     render() {
         return (
-            <div onClick={this.handleClick} class="mapThumb">
+            <div onClick={this.handleClick} className="mapThumb">
 
                 <img src={'http://unn-w17016042.newnumyspace.co.uk/test/maps/' /*+ this.roomId + '/' */ + this.state.mapName}/>
             </div>
