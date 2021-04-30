@@ -1,18 +1,16 @@
-/* Styling each Die */
 .Die{
-    font-size:4em;
+    font-size:70px;
     padding:0.25em;
-    color:blue;
+    color:red;
 }
 
-/* Applying Animation */
+
 .Die-shaking{
     animation-name:wobble;
     animation-duration: 1s;
 }
 
-/* Setting Animation effect to the
-   dice using css keyframe */
+
 @keyframes wobble {
     from {
         transform: translate3d(0, 0, 0);

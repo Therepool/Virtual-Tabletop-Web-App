@@ -5,7 +5,7 @@ import Die from './Die'
 
 class DiceRoller extends Component{
 
-    // Face numbers passes as default props
+
     static defaultProps = {
         sides : ['one', 'two', 'three',
             'four', 'five', 'six']
@@ -13,7 +13,7 @@ class DiceRoller extends Component{
     constructor(props){
         super(props)
 
-        // States
+
         this.state = {
             die1 : 'one',
             die2 : 'one',
@@ -25,16 +25,16 @@ class DiceRoller extends Component{
         const {sides} = this.props
         this.setState({
 
-            // Changing state upon click
+
             die1 : sides[Math.floor(Math.random() * sides.length)],
             die2 : sides[Math.floor(Math.random() * sides.length)],
             rolling:true
         })
 
-        // Start timer of one sec when rolling start
+
         setTimeout(() => {
 
-            // Set rolling to false again when time over
+
             this.setState({rolling:false})
         },1000)
     }
@@ -52,7 +52,7 @@ class DiceRoller extends Component{
                 <button className={handleBtn}
                         disabled={this.state.rolling}
                         onClick={this.roll}>
-                    {this.state.rolling ? 'Rolling' : 'Roll!'}
+                    {this.state.rolling ? 'Rolling' : 'Roll'}
                 </button>
             </div>
         )
