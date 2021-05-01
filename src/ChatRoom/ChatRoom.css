@@ -87,9 +87,14 @@
     height: 100%;
 }
 
+.drawingToolTitle{
+    text-align: center;
+    font-weight: bold;
+}
+
 .ui-drawing-tool-table{
     width: 100%;
-    height: 100%;
+    height: 81%;
     border: 1px solid red;
     text-align: center;
 }

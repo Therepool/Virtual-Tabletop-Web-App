@@ -180,7 +180,10 @@ const ChatRoom = (props) => {
                     <div className='ui-drawing-tool'>
 
 
-                        {/* added content----------------------------------*/}
+                        <div>
+                            <p className={"drawingToolTitle"}>Drawing Tool</p>
+                        </div>
+
 
                         <table className='ui-drawing-tool-table'>
 
