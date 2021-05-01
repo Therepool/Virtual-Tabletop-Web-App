@@ -2,7 +2,7 @@
 
 To run this application on a home machine, these are the steps needed.
 
-1. You will need to download node.js ( https://nodejs.org ). This is in order to use react and node functionalities.
+1. You will need to download node.js ( https://nodejs.org ). This is in order to use react and node functionalities. (After Installing open terminal or command prompt and use the following commands to ensure node is installed node -v and npm -v.)
 2. Download all the files in the main branch.
 3. Go to the directory where the files have been downloaded, and run `npm install` in the terminal.
 4. Now, run `npm start` in the terminal.
