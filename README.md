@@ -8,6 +8,8 @@ To run this application on a home machine, these are the steps needed.
 4. The web application should open in a new tab on your default browser. If not, you can see it by typing `http://localhost:3000/` on your preferred browser.
 
 
+There are no usernames and passwords needed to run this application on your local machine.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
